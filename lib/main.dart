@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'opacity_demo_fix.dart';
+import 'opacity_animation_demo.dart';
+import 'opacity_demo.dart';
 
 void main() => runApp(new MyApp());
 
@@ -55,24 +56,31 @@ class _MyHomePageState extends State<MyHomePage> {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Icon(Icons.star),
-                FlatButton(
-                  child: Text("Demo 1"),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => OpacityDemo()),
-                    );
-                  },
-                ),
-              ],
-            )
+            makeDemoEntry(context, "Opacity Demo 1", OpacityDemo1()),
+            makeDemoEntry(context, "Opacity Demo 2", OpacityDemo2()),
+            makeDemoEntry(
+                context, "Opacity Animation Demo", OpacityAnimationDemo1()),
           ],
         ),
       ),
+    );
+  }
+
+  Widget makeDemoEntry(BuildContext context, String title, Widget nextScreen) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Icon(Icons.star),
+        FlatButton(
+          child: Text(title),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => nextScreen),
+            );
+          },
+        ),
+      ],
     );
   }
 }
