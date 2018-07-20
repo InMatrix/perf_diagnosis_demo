@@ -62,7 +62,12 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
 //            mainAxisSpacing: 10.0,
 //            crossAxisSpacing: 10.0,
             crossAxisCount: 3,
-            children: new List<Widget>.generate(9, (i) => RandomContainer()),
+            children: new List<Widget>.generate(
+                9,
+                (i) => Opacity(
+                      child: RandomContainer(),
+                      opacity: 1.0,
+                    )),
           ),
         ),
         animation: animation,
