@@ -1,8 +1,7 @@
 # perf_diagnosis_demo
 
-A demo for diagnosing performance issues in Flutter code
+This is a demo for diagnosing performance issues in Flutter code
 
-## Getting Started
-
-For help getting started with Flutter, view our online
-[documentation](https://flutter.io/).
+## TODO
+- [ ] Demonstrate AnimatedBuilder rebuild all the underlying widgets when they're not passed in via the `child` property without using the Opacity widget. 
+- [ ] Demonstrate the difference bewteen Opacity and AnimatedOpacity without AnimatedBuilder.
