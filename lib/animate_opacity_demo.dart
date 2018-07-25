@@ -26,7 +26,6 @@ class AnimateOpacityDemoState extends State<AnimateOpacityDemo>
     animation = Tween(begin: 1.0, end: 0.3).animate(controller)
     ..addListener((){
       setState(() {
-        scoreVisible = true;
       });
     });
 
@@ -34,6 +33,9 @@ class AnimateOpacityDemoState extends State<AnimateOpacityDemo>
   }
 
   void showScore() {
+    setState(() {
+      scoreVisible = true;
+    });
     controller.forward();
   }
 
@@ -98,9 +100,9 @@ class AnimateOpacityDemoState extends State<AnimateOpacityDemo>
 
   void dismissScore() {
     if (scoreVisible) {
-      scoreVisible = false;
       controller.reverse();
       setState(() {
+        scoreVisible = false;
       });
     }
   }
