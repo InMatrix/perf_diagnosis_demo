@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'opacity_animation_demo_2.dart';
+import 'animate_opacity_demo.dart';
 import 'opacity_demo.dart';
 
 void main() {
@@ -53,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
             makeDemoEntry(context, "Opacity Demo 1", OpacityDemo1()),
             makeDemoEntry(context, "Opacity Demo 2", OpacityDemo2()),
             makeDemoEntry(
-                context, "Opacity Animation Demo", OpacityAnimationDemo1()),
+                context, "Animate Opacity Demo", AnimateOpacityDemo()),
           ],
         ),
       ),
