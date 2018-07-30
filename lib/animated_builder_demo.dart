@@ -6,12 +6,12 @@
 import 'package:flutter/material.dart';
 import 'package:random_pk/random_pk.dart';
 
-class OpacityAnimationDemo1 extends StatelessWidget {
+class AnimatedBuilderDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Opacity Animation Demo 1"),
+        title: Text("Animated Builder Demo"),
       ),
       body: Center(
         child: new GridView.count(
@@ -42,7 +42,7 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
         duration: const Duration(milliseconds: 500), vsync: this);
     final CurvedAnimation curve =
         CurvedAnimation(parent: controller, curve: Curves.easeOut);
-    animation = Tween(begin: 1.0, end: 0.0).animate(curve)
+    animation = Tween(begin: 0.0, end: 10.0).animate(curve)
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) controller.reverse();
       });
@@ -55,7 +55,7 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
       onTap: () {
         controller.forward();
       },
-      child: OpacityChanges(
+      child: PaddingAnimation(
         animation: animation,
       ),
     );
@@ -67,8 +67,8 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
   }
 }
 
-class OpacityChanges extends StatelessWidget {
-  OpacityChanges({this.child, this.animation});
+class PaddingAnimation extends StatelessWidget {
+  PaddingAnimation({this.child, this.animation});
 
   final Widget child;
   final Animation<double> animation;
@@ -77,8 +77,8 @@ class OpacityChanges extends StatelessWidget {
     return AnimatedBuilder(
         animation: animation,
         builder: (BuildContext context, Widget child) {
-          return Opacity(
-            opacity: animation.value,
+          return Padding(
+            padding: EdgeInsets.all(animation.value),
             child: RandomContainer(
               child: GridView.count(
                 primary: false,

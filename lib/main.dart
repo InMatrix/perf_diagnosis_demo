@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'animate_opacity_demo.dart';
+import 'animate_opacity_fix.dart';
+
+import 'animated_builder_demo.dart';
+import 'animated_builder_fix.dart';
+
 import 'opacity_demo.dart';
 
 void main() {
@@ -50,10 +55,13 @@ class _MyHomePageState extends State<MyHomePage> {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            makeDemoEntry(context, "Opacity Demo 1", OpacityDemo1()),
-            makeDemoEntry(context, "Opacity Demo 2", OpacityDemo2()),
+//            makeDemoEntry(context, "Opacity Demo 1", OpacityDemo2()),
+            makeDemoEntry(context, "Animated Builder Demo", AnimatedBuilderDemo()),
+            makeDemoEntry(context, "Animated Builder Fix", AnimatedBuilderFix()),
             makeDemoEntry(
                 context, "Animate Opacity Demo", AnimateOpacityDemo()),
+            makeDemoEntry(
+                context, "Animate Opacity Fix", AnimateOpacityFix()),
           ],
         ),
       ),
@@ -62,8 +70,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget makeDemoEntry(BuildContext context, String title, Widget nextScreen) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
+        SizedBox(width: 50.0,),
         Icon(Icons.star),
         FlatButton(
           child: Text(title),

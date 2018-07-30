@@ -1,42 +1,44 @@
-// This demo shows that animating the Opacity widget directly can cause all its
-// sub-tree to rebuild in every frame of the animation.
+// This demo shows that using AnimatedOpacity instead of animating the Opacity
+// widget directly can avoid rebuilding its sub-tree in every frame of the
+// animation.
 
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 import 'package:random_pk/random_pk.dart';
 
-class AnimateOpacityDemo extends StatefulWidget {
+class AnimateOpacityFix extends StatefulWidget {
   @override
-  AnimateOpacityDemoState createState() {
-    return new AnimateOpacityDemoState();
+  AnimateOpacityFixState createState() {
+    return new AnimateOpacityFixState();
   }
 }
 
-class AnimateOpacityDemoState extends State<AnimateOpacityDemo>
+class AnimateOpacityFixState extends State<AnimateOpacityFix>
     with SingleTickerProviderStateMixin {
   Animation<double> animation;
   AnimationController controller;
+  var opacityVal = 1.0;
   bool scoreVisible = false;
 
   @override
   void initState() {
-    controller = AnimationController(
-        duration: const Duration(milliseconds: 500), vsync: this);
-
-    animation = Tween(begin: 1.0, end: 0.3).animate(controller)
-    ..addListener((){
-      setState(() {
-      });
-    });
-
     super.initState();
   }
 
   void showScore() {
     setState(() {
+      opacityVal = 0.3;
       scoreVisible = true;
     });
-    controller.forward();
+  }
+
+  void dismissScore() {
+    if (scoreVisible) {
+      setState(() {
+        opacityVal = 1.0;
+        scoreVisible = false;
+      });
+    }
   }
 
   @override
@@ -49,8 +51,9 @@ class AnimateOpacityDemoState extends State<AnimateOpacityDemo>
         children: <Widget>[
           GestureDetector(
             onTap: dismissScore,
-            child: Opacity(
-                opacity: animation.value,
+            child: AnimatedOpacity(
+                duration: Duration(milliseconds: 500),
+                opacity: opacityVal,
                 child: Column(
                   children: <Widget>[
                     Flexible(
@@ -98,12 +101,5 @@ class AnimateOpacityDemoState extends State<AnimateOpacityDemo>
     );
   }
 
-  void dismissScore() {
-    if (scoreVisible) {
-      controller.reverse();
-      setState(() {
-        scoreVisible = false;
-      });
-    }
-  }
+
 }
