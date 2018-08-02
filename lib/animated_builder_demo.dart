@@ -4,7 +4,8 @@
 // each Opacity will get rebuilt in each frame of thea animation.
 
 import 'package:flutter/material.dart';
-import 'package:random_pk/random_pk.dart';
+
+import 'color_list.dart';
 
 class AnimatedBuilderDemo extends StatelessWidget {
   @override
@@ -46,7 +47,6 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
       ..addStatusListener((status) {
         if (status == AnimationStatus.completed) controller.reverse();
       });
-//    controller.forward();
   }
 
   @override
@@ -79,15 +79,14 @@ class PaddingAnimation extends StatelessWidget {
         builder: (BuildContext context, Widget child) {
           return Padding(
             padding: EdgeInsets.all(animation.value),
-            child: RandomContainer(
+            child: Container(
               child: GridView.count(
                 primary: false,
                 crossAxisCount: 3,
                 children: new List<Widget>.generate(
                     9,
-                    (i) => Opacity(
-                          child: RandomContainer(),
-                          opacity: 1.0,
+                    (i) => Container(
+                          color: color_list[i],
                         )),
               ),
             ),

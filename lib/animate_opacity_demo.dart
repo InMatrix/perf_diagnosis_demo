@@ -3,7 +3,8 @@
 
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
-import 'package:random_pk/random_pk.dart';
+
+import 'color_list.dart';
 
 class AnimateOpacityDemo extends StatefulWidget {
   @override
@@ -24,10 +25,9 @@ class AnimateOpacityDemoState extends State<AnimateOpacityDemo>
         duration: const Duration(milliseconds: 500), vsync: this);
 
     animation = Tween(begin: 1.0, end: 0.3).animate(controller)
-    ..addListener((){
-      setState(() {
+      ..addListener(() {
+        setState(() {});
       });
-    });
 
     super.initState();
   }
@@ -43,14 +43,15 @@ class AnimateOpacityDemoState extends State<AnimateOpacityDemo>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Second Screen"),
+        title: Text("Animated Opacity Demo"),
       ),
       body: Stack(
         children: <Widget>[
           GestureDetector(
             onTap: dismissScore,
             child: Opacity(
-                opacity: animation.value,
+              opacity: animation.value,
+              child: RepaintBoundary(
                 child: Column(
                   children: <Widget>[
                     Flexible(
@@ -72,6 +73,7 @@ class AnimateOpacityDemoState extends State<AnimateOpacityDemo>
                     )
                   ],
                 ),
+              ),
             ),
           ),
           buildScoreOverlay(),
@@ -80,8 +82,8 @@ class AnimateOpacityDemoState extends State<AnimateOpacityDemo>
     );
   }
 
-  Widget buildScoreOverlay(){
-    if (scoreVisible){
+  Widget buildScoreOverlay() {
+    if (scoreVisible) {
       return Center(
         child: Text("Your Score is 100!"),
       );
@@ -93,8 +95,11 @@ class AnimateOpacityDemoState extends State<AnimateOpacityDemo>
   }
 
   Widget createItem(index) {
-    return RandomContainer(
-      child: Text(index.toString()),
+    if (index >= 9) {
+      index = index - 9;
+    }
+    return Container(
+      color: color_list[index],
     );
   }
 

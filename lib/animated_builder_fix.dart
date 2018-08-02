@@ -2,7 +2,8 @@
 // AnimatedBuilder can avoid them to be rebuilt in every frame.
 
 import 'package:flutter/material.dart';
-import 'package:random_pk/random_pk.dart';
+
+import 'color_list.dart';
 
 class AnimatedBuilderFix extends StatelessWidget {
   @override
@@ -87,19 +88,17 @@ class PaddingAnimation extends StatelessWidget {
 class GridInGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return RandomContainer(
+    return Container(
       child: GridView.count(
         primary: false,
         crossAxisCount: 3,
         children: new List<Widget>.generate(
-            9, (i) => Opacity(
-              child: RandomContainer(),
-              opacity: 1.0,
-            ),
+          9,
+          (i) => Container(
+                color: color_list[i],
+              ),
         ),
       ),
     );
   }
 }
-
-

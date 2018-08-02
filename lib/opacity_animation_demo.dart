@@ -3,7 +3,8 @@
 // than using AnimatedOpacity or FadeTransition
 
 import 'package:flutter/material.dart';
-import 'package:random_pk/random_pk.dart';
+
+import 'color_list.dart';
 
 class OpacityAnimationDemo1 extends StatelessWidget {
   @override
@@ -55,7 +56,7 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
         controller.forward();
       },
       child: OpacityChanges(
-        child: RandomContainer(
+        child: Container(
           child: GridView.count(
             primary: false,
 //            padding: const EdgeInsets.all(20.0),
@@ -65,7 +66,9 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
             children: new List<Widget>.generate(
                 9,
                 (i) => Opacity(
-                      child: RandomContainer(),
+                      child: Container(
+                        color: color_list[i],
+                      ),
                       opacity: 1.0,
                     )),
           ),

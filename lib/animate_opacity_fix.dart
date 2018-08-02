@@ -4,7 +4,8 @@
 
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
-import 'package:random_pk/random_pk.dart';
+
+import 'color_list.dart';
 
 class AnimateOpacityFix extends StatefulWidget {
   @override
@@ -45,36 +46,36 @@ class AnimateOpacityFixState extends State<AnimateOpacityFix>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Second Screen"),
+        title: Text("Animated Opacity Fix"),
       ),
       body: Stack(
         children: <Widget>[
           GestureDetector(
             onTap: dismissScore,
             child: AnimatedOpacity(
-                duration: Duration(milliseconds: 500),
-                opacity: opacityVal,
-                child: Column(
-                  children: <Widget>[
-                    Flexible(
-                      flex: 9,
-                      child: new GridView.count(
-                        primary: false,
-                        padding: const EdgeInsets.all(20.0),
-                        crossAxisSpacing: 10.0,
-                        crossAxisCount: 3,
-                        children: new List<Widget>.generate(15, createItem),
-                      ),
+              duration: Duration(milliseconds: 500),
+              opacity: opacityVal,
+              child: Column(
+                children: <Widget>[
+                  Flexible(
+                    flex: 9,
+                    child: new GridView.count(
+                      primary: false,
+                      padding: const EdgeInsets.all(20.0),
+                      crossAxisSpacing: 10.0,
+                      crossAxisCount: 3,
+                      children: new List<Widget>.generate(15, createItem),
                     ),
-                    Flexible(
-                      flex: 1,
-                      child: RaisedButton(
-                        onPressed: showScore,
-                        child: Text("Show Score"),
-                      ),
-                    )
-                  ],
-                ),
+                  ),
+                  Flexible(
+                    flex: 1,
+                    child: RaisedButton(
+                      onPressed: showScore,
+                      child: Text("Show Score"),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
           buildScoreOverlay(),
@@ -83,8 +84,8 @@ class AnimateOpacityFixState extends State<AnimateOpacityFix>
     );
   }
 
-  Widget buildScoreOverlay(){
-    if (scoreVisible){
+  Widget buildScoreOverlay() {
+    if (scoreVisible) {
       return Center(
         child: Text("Your Score is 100!"),
       );
@@ -96,10 +97,11 @@ class AnimateOpacityFixState extends State<AnimateOpacityFix>
   }
 
   Widget createItem(index) {
-    return RandomContainer(
-      child: Text(index.toString()),
+    if (index >= 9) {
+      index = index - 9;
+    }
+    return Container(
+      color: color_list[index],
     );
   }
-
-
 }

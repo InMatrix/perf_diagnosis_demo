@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:random_pk/random_pk.dart';
+
+import 'color_list.dart';
 
 class OpacityDemo1 extends StatelessWidget {
   @override
@@ -21,8 +22,11 @@ class OpacityDemo1 extends StatelessWidget {
   }
 
   Widget createItem(index) {
-    return RandomContainer(
-      child: Text(index.toString()),
+    if (index >= 9) {
+      index = index - 9;
+    }
+    return Container(
+      color: color_list[index],
     );
   }
 }
@@ -45,10 +49,13 @@ class OpacityDemo2 extends StatelessWidget {
   }
 
   Widget createItem(index) {
+    if (index >= 9) {
+      index = index - 9;
+    }
     return Opacity(
       opacity: 0.5,
-      child: RandomContainer(
-        child: Text(index.toString()),
+      child: Container(
+        color: color_list[index],
       ),
     );
   }
