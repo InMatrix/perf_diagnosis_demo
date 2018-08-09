@@ -65,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> {
             makeDemoEntry(context, "Animate Opacity Fix", AnimateOpacityFix()),
             makeDemoEntry(context, "Many Materials Demo", ManyMaterialsDemo()),
             makeDemoEntry(context, "Opacity Demo", OpacityDemo1()),
+            makeDemoEntry(context, "Clock Demo", ClockDemo()),
           ],
         ),
       ),
