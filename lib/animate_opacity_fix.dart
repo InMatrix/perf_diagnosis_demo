@@ -97,11 +97,13 @@ class AnimateOpacityFixState extends State<AnimateOpacityFix>
   }
 
   Widget createItem(index) {
+    final colorList = getColorList();
+
     if (index >= 9) {
       index = index - 9;
     }
     return Container(
-      color: color_list[index],
+      color: colorList[index],
     );
   }
 }

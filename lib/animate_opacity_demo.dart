@@ -95,11 +95,13 @@ class AnimateOpacityDemoState extends State<AnimateOpacityDemo>
   }
 
   Widget createItem(index) {
+    var colorList = getColorList();
+
     if (index >= 9) {
       index = index - 9;
     }
     return Container(
-      color: color_list[index],
+      color: colorList[index],
     );
   }
 

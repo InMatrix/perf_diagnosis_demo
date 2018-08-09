@@ -72,6 +72,7 @@ class PaddingAnimation extends StatelessWidget {
 
   final Widget child;
   final Animation<double> animation;
+  final colorList = getColorList();
 
   Widget build(BuildContext context) {
     return AnimatedBuilder(
@@ -86,7 +87,7 @@ class PaddingAnimation extends StatelessWidget {
                 children: new List<Widget>.generate(
                     9,
                     (i) => Container(
-                          color: color_list[i],
+                          color: colorList[i],
                         )),
               ),
             ),

@@ -20,15 +20,6 @@ class OpacityDemo1 extends StatelessWidget {
           )),
     );
   }
-
-  Widget createItem(index) {
-    if (index >= 9) {
-      index = index - 9;
-    }
-    return Container(
-      color: color_list[index],
-    );
-  }
 }
 
 class OpacityDemo2 extends StatelessWidget {
@@ -47,16 +38,19 @@ class OpacityDemo2 extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget createItem(index) {
-    if (index >= 9) {
-      index = index - 9;
-    }
-    return Opacity(
-      opacity: 0.5,
-      child: Container(
-        color: color_list[index],
-      ),
-    );
+Widget createItem(index) {
+  final colorList = getColorList();
+
+  while (index >= 9) {
+    index = index - 9;
   }
+
+  return Opacity(
+    opacity: 0.5,
+    child: Container(
+      color: colorList[index],
+    ),
+  );
 }

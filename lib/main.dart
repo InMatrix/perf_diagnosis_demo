@@ -4,7 +4,9 @@ import 'animate_opacity_demo.dart';
 import 'animate_opacity_fix.dart';
 import 'animated_builder_demo.dart';
 import 'animated_builder_fix.dart';
+import 'clock_demo.dart';
 import 'many_materials_demo.dart';
+import 'opacity_demo.dart';
 
 void main() {
   debugProfileBuildsEnabled = true; // This flag will work in debug mode only.
@@ -62,6 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 context, "Animate Opacity Demo", AnimateOpacityDemo()),
             makeDemoEntry(context, "Animate Opacity Fix", AnimateOpacityFix()),
             makeDemoEntry(context, "Many Materials Demo", ManyMaterialsDemo()),
+            makeDemoEntry(context, "Opacity Demo", OpacityDemo1()),
           ],
         ),
       ),

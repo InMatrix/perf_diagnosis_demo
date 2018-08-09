@@ -86,6 +86,8 @@ class PaddingAnimation extends StatelessWidget {
 }
 
 class GridInGrid extends StatelessWidget {
+  final colorList = getColorList();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -95,7 +97,7 @@ class GridInGrid extends StatelessWidget {
         children: new List<Widget>.generate(
           9,
           (i) => Container(
-                color: color_list[i],
+                color: colorList[i],
               ),
         ),
       ),
