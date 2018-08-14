@@ -10,6 +10,8 @@ import 'opacity_demo.dart';
 
 void main() {
   debugProfileBuildsEnabled = true; // This flag will work in debug mode only.
+  debugPrintRebuildDirtyWidgets = false;
+  // This flag will print out all dirty widgets
   runApp(new MyApp());
 }
 
