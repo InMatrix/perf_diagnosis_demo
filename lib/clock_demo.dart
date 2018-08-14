@@ -17,7 +17,7 @@ class _ClockDemoState extends State<ClockDemo> {
     super.initState();
   }
 
-  void timerCallBack(Timer) {
+  void timerCallBack(timer) {
     setState(() {
       currentTime = DateTime.now();
     });
