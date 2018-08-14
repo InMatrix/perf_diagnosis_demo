@@ -6,6 +6,7 @@ import 'animate_opacity_fix.dart';
 import 'animated_builder_demo.dart';
 import 'animated_builder_fix.dart';
 import 'clock_demo.dart';
+import 'list_demo.dart';
 import 'many_materials_demo.dart';
 import 'opacity_demo.dart';
 
@@ -59,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-//            makeDemoEntry(context, "Opacity Demo 1", OpacityDemo2()),
+            makeDemoEntry(context, "Clock Demo", ClockDemo()),
             makeDemoEntry(
                 context, "Animated Builder Demo", AnimatedBuilderDemo()),
             makeDemoEntry(
@@ -69,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
             makeDemoEntry(context, "Animate Opacity Fix", AnimateOpacityFix()),
             makeDemoEntry(context, "Many Materials Demo", ManyMaterialsDemo()),
             makeDemoEntry(context, "Opacity Demo", OpacityDemo1()),
-            makeDemoEntry(context, "Clock Demo", ClockDemo()),
+            makeDemoEntry(context, "List Demo", ListDemo()),
           ],
         ),
       ),
