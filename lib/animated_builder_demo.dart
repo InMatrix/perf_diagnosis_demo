@@ -4,7 +4,7 @@
 // each Opacity will get rebuilt in each frame of thea animation.
 
 import 'package:flutter/material.dart';
-
+import 'dart:math';
 import 'color_list.dart';
 
 class AnimatedBuilderDemo extends StatelessWidget {
@@ -43,9 +43,9 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
         duration: const Duration(milliseconds: 500), vsync: this);
     final CurvedAnimation curve =
         CurvedAnimation(parent: controller, curve: Curves.easeOut);
-    animation = Tween(begin: 0.0, end: 10.0).animate(curve)
+    animation = Tween(begin: 0.0, end: pi * 2).animate(curve)
       ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) controller.reverse();
+        if (status == AnimationStatus.completed) controller.reset();
       });
   }
 
@@ -55,7 +55,7 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
       onTap: () {
         controller.forward();
       },
-      child: PaddingAnimation(
+      child: SpinningBox(
         animation: animation,
       ),
     );
@@ -67,8 +67,8 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
   }
 }
 
-class PaddingAnimation extends StatelessWidget {
-  PaddingAnimation({this.child, this.animation});
+class SpinningBox extends StatelessWidget {
+  SpinningBox({this.child, this.animation});
 
   final Widget child;
   final Animation<double> animation;
@@ -78,17 +78,20 @@ class PaddingAnimation extends StatelessWidget {
     return AnimatedBuilder(
         animation: animation,
         builder: (BuildContext context, Widget child) {
-          return Padding(
-            padding: EdgeInsets.all(animation.value),
-            child: Container(
-              child: GridView.count(
-                primary: false,
-                crossAxisCount: 3,
-                children: new List<Widget>.generate(
-                    9,
-                    (i) => Container(
-                          color: colorList[i],
-                        )),
+          return Transform.rotate(
+            angle: animation.value,
+            child: Padding(
+              padding: EdgeInsets.all(5.0),
+              child: Container(
+                child: GridView.count(
+                  primary: false,
+                  crossAxisCount: 3,
+                  children: new List<Widget>.generate(
+                      9,
+                      (i) => Container(
+                            color: colorList[i],
+                          )),
+                ),
               ),
             ),
           );
