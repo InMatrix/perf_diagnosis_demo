@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import 'animate_opacity_demo.dart';
 import 'animate_opacity_fix.dart';
@@ -10,6 +11,7 @@ import 'opacity_demo.dart';
 
 void main() {
   debugProfileBuildsEnabled = true; // This flag will work in debug mode only.
+  debugProfilePaintsEnabled = true;
   debugPrintRebuildDirtyWidgets = false;
   // This flag will print out all dirty widgets
   runApp(new MyApp());
