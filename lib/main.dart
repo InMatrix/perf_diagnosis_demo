@@ -6,13 +6,14 @@ import 'animate_opacity_fix.dart';
 import 'animated_builder_demo.dart';
 import 'animated_builder_fix.dart';
 import 'clock_demo.dart';
+import 'clock_fix.dart';
 import 'list_demo.dart';
 import 'many_materials_demo.dart';
 import 'opacity_demo.dart';
 
 void main() {
   debugProfileBuildsEnabled = true; // This flag will work in debug mode only.
-  debugProfilePaintsEnabled = true;
+//  debugProfilePaintsEnabled = true;
   debugPrintRebuildDirtyWidgets = false;
   // This flag will print out all dirty widgets
   runApp(new MyApp());
@@ -61,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             makeDemoEntry(context, "Clock Demo", ClockDemo()),
+            makeDemoEntry(context, "Clock Demo Fix", ClockFix()),
             makeDemoEntry(
                 context, "Animated Builder Demo", AnimatedBuilderDemo()),
             makeDemoEntry(
