@@ -12,7 +12,7 @@ class _ClockDemoState extends State<ClockFix> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Clock Demo"),
+        title: Text("World Clock Optimized"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

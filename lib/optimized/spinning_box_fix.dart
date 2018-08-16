@@ -3,14 +3,14 @@
 
 import 'package:flutter/material.dart';
 
-import 'color_list.dart';
+import '../color_list.dart';
 
-class AnimatedBuilderFix extends StatelessWidget {
+class SpinningBoxFix extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Animated Builder Fix"),
+        title: Text("Spinning Box Optimized"),
       ),
       body: Center(
         child: new GridView.count(

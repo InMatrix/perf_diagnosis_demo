@@ -3,16 +3,18 @@
 // than using AnimatedOpacity or FadeTransition, because everything underneath
 // each Opacity will get rebuilt in each frame of thea animation.
 
-import 'package:flutter/material.dart';
 import 'dart:math';
+
+import 'package:flutter/material.dart';
+
 import 'color_list.dart';
 
-class AnimatedBuilderDemo extends StatelessWidget {
+class SpinningBoxDemo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Animated Builder Demo"),
+        title: Text("Spinning Box Demo"),
       ),
       body: Center(
         child: new GridView.count(

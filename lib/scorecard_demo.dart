@@ -6,14 +6,14 @@ import 'package:flutter/material.dart';
 
 import 'color_list.dart';
 
-class AnimateOpacityDemo extends StatefulWidget {
+class ScorecardDemo extends StatefulWidget {
   @override
-  AnimateOpacityDemoState createState() {
-    return new AnimateOpacityDemoState();
+  ScorecardDemoState createState() {
+    return new ScorecardDemoState();
   }
 }
 
-class AnimateOpacityDemoState extends State<AnimateOpacityDemo>
+class ScorecardDemoState extends State<ScorecardDemo>
     with SingleTickerProviderStateMixin {
   Animation<double> animation;
   AnimationController controller;

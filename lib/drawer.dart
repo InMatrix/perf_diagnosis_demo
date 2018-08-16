@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:perf_diagnosis_demo/optimized/spinning_box_fix.dart';
 
-import 'animate_opacity_fix.dart';
-import 'animated_builder_fix.dart';
-import 'clock_fix.dart';
 import 'many_materials_demo.dart';
 import 'opacity_demo.dart';
+import 'optimized/clock_fix.dart';
+import 'optimized/scorecard_fix.dart';
 
 class MyDrawer extends StatelessWidget {
   @override
@@ -12,9 +12,10 @@ class MyDrawer extends StatelessWidget {
     return Drawer(
       child: Column(
         children: <Widget>[
-          Container(
-            height: 100.0,
-            child: Center(
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
               child: new Text(
                 'Optimized Examples',
                 style: DefaultTextStyle.of(context)
@@ -24,13 +25,20 @@ class MyDrawer extends StatelessWidget {
             ),
           ),
           _makeDemoEntry(context, "World Clock Demo", ClockFix()),
-          _makeDemoEntry(context, "Spinning Boxes Demo", AnimatedBuilderFix()),
-          _makeDemoEntry(context, "Score Card Demo", AnimateOpacityFix()),
+          _makeDemoEntry(context, "Spinning Box Demo", SpinningBoxFix()),
+          _makeDemoEntry(context, "Scorecard Demo", ScorecardFix()),
           Divider(),
-          new Text(
-            'More Examples',
-            style:
-                DefaultTextStyle.of(context).style.apply(fontSizeFactor: 1.5),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: new Text(
+                'More Examples',
+                style: DefaultTextStyle.of(context)
+                    .style
+                    .apply(fontSizeFactor: 1.5),
+              ),
+            ),
           ),
           _makeDemoEntry(context, "Many Materials Demo", ManyMaterialsDemo()),
           _makeDemoEntry(context, "Opacity Demo", OpacityDemo1()),

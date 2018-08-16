@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
-import 'animate_opacity_demo.dart';
-import 'animated_builder_demo.dart';
 import 'clock_demo.dart';
 import 'drawer.dart';
 import 'list_demo.dart';
+import 'scorecard_demo.dart';
+import 'spinning_box_demo.dart';
 
 void main() {
   debugProfileBuildsEnabled = true; // This flag will work in debug mode only.
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           theme: new ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: new MyHomePage(title: 'Flutter Perf Diagnosis Demo'),
+          home: new MyHomePage(title: 'Performance Diagnosis Demo'),
         ),
 //        new PerformanceOverlay.allEnabled(
 //          checkerboardOffscreenLayers: true,
@@ -55,15 +55,17 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       drawer: MyDrawer(),
       body: new Center(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            makeDemoEntry(context, "Clock Demo", ClockDemo()),
-            makeDemoEntry(context, "List Demo", ListDemo()),
-            makeDemoEntry(
-                context, "Spinning Boxes Demo", AnimatedBuilderDemo()),
-            makeDemoEntry(context, "Score Card Demo", AnimateOpacityDemo()),
-          ],
+        child: Card(
+          child: new Column(
+            mainAxisSize: MainAxisSize.min,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              makeDemoEntry(context, "Clock Demo", ClockDemo()),
+              makeDemoEntry(context, "List Demo", ListDemo()),
+              makeDemoEntry(context, "Spinning Boxes Demo", SpinningBoxDemo()),
+              makeDemoEntry(context, "Scorecard Demo", ScorecardDemo()),
+            ],
+          ),
         ),
       ),
     );

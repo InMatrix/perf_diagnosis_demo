@@ -5,16 +5,16 @@
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 
-import 'color_list.dart';
+import '../color_list.dart';
 
-class AnimateOpacityFix extends StatefulWidget {
+class ScorecardFix extends StatefulWidget {
   @override
-  AnimateOpacityFixState createState() {
-    return new AnimateOpacityFixState();
+  ScorecardFixState createState() {
+    return new ScorecardFixState();
   }
 }
 
-class AnimateOpacityFixState extends State<AnimateOpacityFix>
+class ScorecardFixState extends State<ScorecardFix>
     with SingleTickerProviderStateMixin {
   Animation<double> animation;
   AnimationController controller;
@@ -46,7 +46,7 @@ class AnimateOpacityFixState extends State<AnimateOpacityFix>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Animated Opacity Fix"),
+        title: Text("Scorecard Optimized"),
       ),
       body: Stack(
         children: <Widget>[
