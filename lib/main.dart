@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 import 'animate_opacity_demo.dart';
-import 'animate_opacity_fix.dart';
 import 'animated_builder_demo.dart';
-import 'animated_builder_fix.dart';
 import 'clock_demo.dart';
-import 'clock_fix.dart';
+import 'drawer.dart';
 import 'list_demo.dart';
-import 'many_materials_demo.dart';
-import 'opacity_demo.dart';
 
 void main() {
   debugProfileBuildsEnabled = true; // This flag will work in debug mode only.
@@ -33,9 +29,9 @@ class MyApp extends StatelessWidget {
           ),
           home: new MyHomePage(title: 'Flutter Perf Diagnosis Demo'),
         ),
-        new PerformanceOverlay.allEnabled(
-          checkerboardOffscreenLayers: true,
-        ),
+//        new PerformanceOverlay.allEnabled(
+//          checkerboardOffscreenLayers: true,
+//        ),
       ],
     );
   }
@@ -57,22 +53,16 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: new AppBar(
         title: new Text(widget.title),
       ),
+      drawer: MyDrawer(),
       body: new Center(
         child: new Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             makeDemoEntry(context, "Clock Demo", ClockDemo()),
-            makeDemoEntry(context, "Clock Demo Fix", ClockFix()),
-            makeDemoEntry(
-                context, "Animated Builder Demo", AnimatedBuilderDemo()),
-            makeDemoEntry(
-                context, "Animated Builder Fix", AnimatedBuilderFix()),
-            makeDemoEntry(
-                context, "Animate Opacity Demo", AnimateOpacityDemo()),
-            makeDemoEntry(context, "Animate Opacity Fix", AnimateOpacityFix()),
-            makeDemoEntry(context, "Many Materials Demo", ManyMaterialsDemo()),
-            makeDemoEntry(context, "Opacity Demo", OpacityDemo1()),
             makeDemoEntry(context, "List Demo", ListDemo()),
+            makeDemoEntry(
+                context, "Spinning Boxes Demo", AnimatedBuilderDemo()),
+            makeDemoEntry(context, "Score Card Demo", AnimateOpacityDemo()),
           ],
         ),
       ),
