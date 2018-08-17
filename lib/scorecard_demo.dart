@@ -1,6 +1,3 @@
-// This demo shows that animating the Opacity widget directly can cause all its
-// sub-tree to rebuild in every frame of the animation.
-
 import 'package:flutter/animation.dart';
 import 'package:flutter/material.dart';
 
@@ -51,28 +48,26 @@ class ScorecardDemoState extends State<ScorecardDemo>
             onTap: dismissScore,
             child: Opacity(
               opacity: animation.value,
-              child: RepaintBoundary(
-                child: Column(
-                  children: <Widget>[
-                    Flexible(
-                      flex: 9,
-                      child: new GridView.count(
-                        primary: false,
-                        padding: const EdgeInsets.all(20.0),
-                        crossAxisSpacing: 10.0,
-                        crossAxisCount: 3,
-                        children: new List<Widget>.generate(15, createItem),
-                      ),
+              child: Column(
+                children: <Widget>[
+                  Flexible(
+                    flex: 9,
+                    child: new GridView.count(
+                      primary: false,
+                      padding: const EdgeInsets.all(20.0),
+                      crossAxisSpacing: 10.0,
+                      crossAxisCount: 3,
+                      children: new List<Widget>.generate(15, createItem),
                     ),
-                    Flexible(
-                      flex: 1,
-                      child: RaisedButton(
-                        onPressed: showScore,
-                        child: Text("Show Score"),
-                      ),
-                    )
-                  ],
-                ),
+                  ),
+                  Flexible(
+                    flex: 1,
+                    child: RaisedButton(
+                      onPressed: showScore,
+                      child: Text("Show Score"),
+                    ),
+                  )
+                ],
               ),
             ),
           ),
