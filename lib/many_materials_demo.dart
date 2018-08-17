@@ -1,6 +1,3 @@
-// This demo shows that passing in non-animated widgets as a child into an
-// AnimatedBuilder can avoid them to be rebuilt in every frame.
-
 import 'package:flutter/material.dart';
 
 import 'color_list.dart';

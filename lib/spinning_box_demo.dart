@@ -1,8 +1,3 @@
-// This demo directly animate the opacity property on the Opacity widget
-// to change the opacity of each cell in the grid. It's supposed to be slower
-// than using AnimatedOpacity or FadeTransition, because everything underneath
-// each Opacity will get rebuilt in each frame of thea animation.
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
