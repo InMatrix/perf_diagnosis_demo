@@ -27,7 +27,7 @@ class _ClockDemoState extends State<ClockDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Clock Demo"),
+        title: Text("World Clock Demo"),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

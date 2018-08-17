@@ -60,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              makeDemoEntry(context, "Clock Demo", ClockDemo()),
+              makeDemoEntry(context, "World Clock Demo", ClockDemo()),
               makeDemoEntry(context, "List Demo", ListDemo()),
               makeDemoEntry(context, "Spinning Boxes Demo", SpinningBoxDemo()),
               makeDemoEntry(context, "Scorecard Demo", ScorecardDemo()),
