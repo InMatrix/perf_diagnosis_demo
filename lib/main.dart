@@ -8,10 +8,6 @@ import 'scorecard_demo.dart';
 import 'spinning_box_demo.dart';
 
 void main() {
-  debugProfileBuildsEnabled = true; // This flag will work in debug mode only.
-//  debugProfilePaintsEnabled = true;
-  debugPrintRebuildDirtyWidgets = false;
-  // This flag will print out all dirty widgets
   runApp(new MyApp());
 }
 
@@ -19,20 +15,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return new Stack(
-      alignment: Alignment.topCenter,
-      children: <Widget>[
-        new MaterialApp(
-          title: 'Flutter Demo',
-          theme: new ThemeData(
-            primarySwatch: Colors.blue,
-          ),
-          home: new MyHomePage(title: 'Performance Diagnosis Demo'),
-        ),
-//        new PerformanceOverlay.allEnabled(
-//          checkerboardOffscreenLayers: true,
-//        ),
-      ],
+    return new MaterialApp(
+      title: 'Flutter Demo',
+      theme: new ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: new MyHomePage(title: 'Performance Diagnosis Demo'),
     );
   }
 }
