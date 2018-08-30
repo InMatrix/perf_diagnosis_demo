@@ -51,13 +51,20 @@ class ClockText extends StatefulWidget {
 
 class _ClockTextState extends State<ClockText> {
   var currentTime = DateTime.now();
-  var timer;
+  Timer timer;
 
   @override
   void initState() {
-    timer = new Timer.periodic(new Duration(milliseconds: 1000), timerCallBack);
+    timer = new Timer.periodic(new Duration(milliseconds: 1000 ~/ 60), timerCallBack);
     super.initState();
   }
+
+  @override
+  void dispose() {
+    super.dispose();
+    timer.cancel();
+  }
+
 
   void timerCallBack(timer) {
     setState(() {

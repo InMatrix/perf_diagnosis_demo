@@ -38,7 +38,7 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
   initState() {
     super.initState();
     controller = AnimationController(
-        duration: const Duration(milliseconds: 500), vsync: this);
+        duration: const Duration(milliseconds: 3000), vsync: this);
     final CurvedAnimation curve =
         CurvedAnimation(parent: controller, curve: Curves.easeOut);
     animation = Tween(begin: 0.0, end: 10.0).animate(curve)
