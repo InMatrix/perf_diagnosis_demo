@@ -17,8 +17,8 @@ class SpinningBoxFix extends StatelessWidget {
         child: new GridView.count(
           primary: false,
           padding: const EdgeInsets.all(20.0),
-          mainAxisSpacing: 10.0,
-          crossAxisSpacing: 10.0,
+          mainAxisSpacing: 30.0,
+          crossAxisSpacing: 30.0,
           crossAxisCount: 3,
           children: new List<Widget>.generate(12, (i) => GridItem()),
         ),
