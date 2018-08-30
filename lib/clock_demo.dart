@@ -9,12 +9,17 @@ class ClockDemo extends StatefulWidget {
 
 class _ClockDemoState extends State<ClockDemo> {
   var currentTime = DateTime.now();
-  var timer;
+  Timer timer;
 
   @override
   void initState() {
-    timer = new Timer.periodic(new Duration(milliseconds: 1000), timerCallBack);
+    timer = new Timer.periodic(new Duration(milliseconds: 1000 ~/ 60), timerCallBack);
     super.initState();
+  }
+
+  void dispose() {
+    super.dispose();
+    timer.cancel();
   }
 
   void timerCallBack(timer) {
