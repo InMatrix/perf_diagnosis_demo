@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 
 import '../color_list.dart';
+import 'dart:math';
 
 class SpinningBoxFix extends StatelessWidget {
   @override
@@ -26,6 +27,7 @@ class SpinningBoxFix extends StatelessWidget {
   }
 }
 
+// Widget for the box with a grid in it
 class GridItem extends StatefulWidget {
   @override
   _GridItemState createState() => _GridItemState();
@@ -41,9 +43,9 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
         duration: const Duration(milliseconds: 3000), vsync: this);
     final CurvedAnimation curve =
         CurvedAnimation(parent: controller, curve: Curves.easeOut);
-    animation = Tween(begin: 0.0, end: 10.0).animate(curve)
+    animation = Tween(begin: 0.0, end: pi * 2).animate(curve)
       ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) controller.reverse();
+        if (status == AnimationStatus.completed) controller.reset();
       });
   }
 
@@ -53,7 +55,7 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
       onTap: () {
         controller.forward();
       },
-      child: PaddingAnimation(
+      child: SpinningBox(
         animation: animation,
         child: GridInGrid(),
       ),
@@ -66,8 +68,9 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
   }
 }
 
-class PaddingAnimation extends StatelessWidget {
-  PaddingAnimation({this.child, this.animation});
+// Widget that makes its content spinnable
+class SpinningBox extends StatelessWidget {
+  SpinningBox({this.child, this.animation});
 
   final Widget child;
   final Animation<double> animation;
@@ -76,8 +79,8 @@ class PaddingAnimation extends StatelessWidget {
     return AnimatedBuilder(
         animation: animation,
         builder: (BuildContext context, Widget child) {
-          return Padding(
-            padding: EdgeInsets.all(animation.value),
+          return Transform.rotate(
+            angle: animation.value,
             child: child,
           );
         },

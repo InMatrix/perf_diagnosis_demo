@@ -25,6 +25,7 @@ class SpinningBoxDemo extends StatelessWidget {
   }
 }
 
+// Widget for the box with a grid in it
 class GridItem extends StatefulWidget {
   @override
   _GridItemState createState() => _GridItemState();
@@ -64,6 +65,7 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
   }
 }
 
+// Widget that makes its content spinnable 
 class SpinningBox extends StatelessWidget {
   SpinningBox({this.child, this.animation});
 
