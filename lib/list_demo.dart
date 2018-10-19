@@ -45,7 +45,7 @@ class ListDemo extends StatelessWidget {
   List<Widget> createListItems() {
     var listItems = List<Widget>.generate(
       200,
-      (int) => InkWell(
+      (int index) => InkWell(
             onTap: () {},
             child: ListTile(
               leading: Icon(Icons.monetization_on),
