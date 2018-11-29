@@ -108,7 +108,7 @@ class _AnimatedCoin extends StatelessWidget {
                 transform: Matrix4.identity()
                   ..rotateX(2 * pi * flipAnimation.value),
                 alignment: Alignment.center,
-                child: CustomPaint(
+                child: const CustomPaint(
                   size: Size(150.0, 150.0),
                   painter: _CoinPainter(),
                 ),
@@ -122,6 +122,8 @@ class _AnimatedCoin extends StatelessWidget {
 }
 
 class _CoinPainter extends CustomPainter {
+  const _CoinPainter();
+
   @override
   void paint(Canvas canvas, Size size) {
     Paint p = Paint()
@@ -132,10 +134,7 @@ class _CoinPainter extends CustomPainter {
     canvas.drawCircle(center, radius, p);
   }
 
-  @override
-  bool shouldRepaint(CustomPainter oldDelegate) {
-    return true;
-  }
+  bool shouldRepaint(_CoinPainter oldDelegate) => false;
 }
 
 class _FlipButton extends StatelessWidget {
