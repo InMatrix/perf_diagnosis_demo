@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 
 import 'clock_demo.dart';
 import 'drawer.dart';
+import 'coin_flip_demo.dart';
 import 'list_demo.dart';
 import 'scorecard_demo.dart';
 import 'spinning_box_demo.dart';
@@ -52,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
               makeDemoEntry(context, "List Demo", ListDemo()),
               makeDemoEntry(context, "Spinning Boxes Demo", SpinningBoxDemo()),
               makeDemoEntry(context, "Scorecard Demo", ScorecardDemo()),
+              makeDemoEntry(context, "Coin Flip Demo", CoinFlipDemo()),
             ],
           ),
         ),
