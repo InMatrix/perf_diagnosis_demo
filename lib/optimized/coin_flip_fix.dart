@@ -120,6 +120,8 @@ class _AnimatedCoin extends StatelessWidget {
   final AnimationController controller;
   final Animation flipAnimation;
 
+  // This build method could be optimized, but it is not crucial since only one
+  // coin is shown on the screen and rendering each frame takes far less than 8ms.
   @override
   Widget build(BuildContext context) {
     return Container(
