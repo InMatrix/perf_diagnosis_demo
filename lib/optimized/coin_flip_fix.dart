@@ -180,7 +180,7 @@ class _Results extends StatelessWidget {
   final int heads;
   final int tails;
   final int total;
-q
+
   String get headsPercentage => total == 0 ? '-- %' : formatter.format(heads / total);
   String get tailsPercentage => total == 0 ? '-- %' : formatter.format(tails / total);
 
