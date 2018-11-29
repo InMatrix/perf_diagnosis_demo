@@ -13,7 +13,7 @@ class CoinFlipFixState extends State<CoinFlipFix> with SingleTickerProviderState
   Animation _flipAnimation;
   SchedulerBinding _scheduler;
 
-  static final Random random = Random();
+  final Random random = Random();
 
   // The total number of tasks we will run. We need to split up the computational
   // work of calculating coin flips into multiple tasks. Each task should complete
@@ -195,7 +195,7 @@ class _Results extends StatelessWidget {
   final int tails;
   final int total;
 
-  static final NumberFormat formatter = NumberFormat.percentPattern('en_US');
+  final NumberFormat formatter = NumberFormat.percentPattern('en_US');
 
   String get headsPercentage => total == 0 ? '-- %' : formatter.format(heads / total);
   String get tailsPercentage => total == 0 ? '-- %' : formatter.format(tails / total);

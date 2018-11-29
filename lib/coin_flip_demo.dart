@@ -11,7 +11,7 @@ class CoinFlipDemoState extends State<CoinFlipDemo> with SingleTickerProviderSta
   AnimationController _controller;
   Animation _flipAnimation;
 
-  static final Random random = Random();
+  final Random random = Random();
 
   // Whether the coin is currently flipping
   bool isCoinFlipping = false;
@@ -166,7 +166,7 @@ class _Results extends StatelessWidget {
   final int tails;
   final int total;
 
-  static final NumberFormat formatter = NumberFormat.percentPattern('en_US');
+  final NumberFormat formatter = NumberFormat.percentPattern('en_US');
   
   String get headsPercentage => total == 0 ? '-- %' : formatter.format(heads / total);
   String get tailsPercentage => total == 0 ? '-- %' : formatter.format(tails / total);
