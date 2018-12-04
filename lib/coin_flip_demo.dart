@@ -26,7 +26,7 @@ class CoinFlipDemoState extends State<CoinFlipDemo> with SingleTickerProviderSta
     if (!isCoinFlipping) {
       _headsCount = 0;
       _tailsCount = 0;
-      _totalFlipCount = 250000;
+      _totalFlipCount = 20000;
 
       setState(() {
         isCoinFlipping = true;

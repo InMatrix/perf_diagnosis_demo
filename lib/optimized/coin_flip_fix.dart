@@ -30,7 +30,7 @@ class CoinFlipFixState extends State<CoinFlipFix> with SingleTickerProviderState
   // The total number of times the coin has been flipped.
   int _totalFlipCount = 0;
   // Target number of times we want to flip the coin.
-  int _targetFlipCount = 250000;
+  int _targetFlipCount = 20000;
 
   void _flipCoin() {
     if (!isCoinFlipping) {
