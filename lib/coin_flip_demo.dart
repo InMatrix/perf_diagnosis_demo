@@ -11,7 +11,7 @@ class CoinFlipDemoState extends State<CoinFlipDemo> with SingleTickerProviderSta
   AnimationController _controller;
   Animation _flipAnimation;
 
-  final Random random = Random();
+  final Random random = Random.secure();
 
   // Whether the coin is currently flipping
   bool isCoinFlipping = false;
