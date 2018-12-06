@@ -65,7 +65,6 @@ class _ClockTextState extends State<ClockText> {
     timer.cancel();
   }
 
-
   void timerCallBack(timer) {
     setState(() {
       currentTime = DateTime.now();
