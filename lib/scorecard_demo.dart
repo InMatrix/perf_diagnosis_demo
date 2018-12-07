@@ -5,12 +5,12 @@ import 'color_list.dart';
 
 class ScorecardDemo extends StatefulWidget {
   @override
-  ScorecardDemoState createState() {
-    return new ScorecardDemoState();
+  _ScorecardDemoState createState() {
+    return new _ScorecardDemoState();
   }
 }
 
-class ScorecardDemoState extends State<ScorecardDemo>
+class _ScorecardDemoState extends State<ScorecardDemo>
     with SingleTickerProviderStateMixin {
   Animation<double> animation;
   AnimationController controller;
@@ -108,4 +108,11 @@ class ScorecardDemoState extends State<ScorecardDemo>
       });
     }
   }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
 }
