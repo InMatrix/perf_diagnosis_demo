@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'channel_demo.dart';
 import 'clock_demo.dart';
 import 'drawer.dart';
 import 'coin_flip_demo.dart';
@@ -54,6 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
               makeDemoEntry(context, "Spinning Boxes Demo", SpinningBoxDemo()),
               makeDemoEntry(context, "Scorecard Demo", ScorecardDemo()),
               makeDemoEntry(context, "Coin Flip Demo", CoinFlipDemo()),
+              makeDemoEntry(context, "Platform Channel Demo", ChannelDemo()),
             ],
           ),
         ),
