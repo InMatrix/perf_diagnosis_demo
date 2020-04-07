@@ -43,32 +43,46 @@ class _MyHomePageState extends State<MyHomePage> {
         title: new Text(widget.title),
       ),
       drawer: MyDrawer(),
-      body: new Center(
-        child: Card(
-          child: new Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              makeDemoEntry(context, "World Clock Demo", ClockDemo()),
-              makeDemoEntry(context, "List Demo", ListDemo()),
-              makeDemoEntry(context, "Spinning Boxes Demo", SpinningBoxDemo()),
-              makeDemoEntry(context, "Scorecard Demo", ScorecardDemo()),
-              makeDemoEntry(context, "Coin Flip Demo", CoinFlipDemo()),
-            ],
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Card(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SectionHeader(
+                  title: "Rendering Performance",
+                ),
+                makeDemoEntry(context, "World Clock Demo", ClockDemo()),
+                makeDemoEntry(context, "List Demo", ListDemo()),
+                makeDemoEntry(
+                    context, "Spinning Boxes Demo", SpinningBoxDemo()),
+                makeDemoEntry(context, "Scorecard Demo", ScorecardDemo()),
+              ],
+            ),
           ),
-        ),
+          Card(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: <Widget>[
+                  SectionHeader(
+                    title: "CPU Performance",
+                  ),
+                  makeDemoEntry(context, "Coin Flip Demo", CoinFlipDemo()),
+            ],
+          ))
+        ],
       ),
     );
   }
 
   Widget makeDemoEntry(BuildContext context, String title, Widget nextScreen) {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         SizedBox(
           width: 50.0,
         ),
-        Icon(Icons.star),
+        Icon(Icons.warning),
         FlatButton(
           child: Text(title),
           onPressed: () {
@@ -79,6 +93,23 @@ class _MyHomePageState extends State<MyHomePage> {
           },
         ),
       ],
+    );
+  }
+}
+
+class SectionHeader extends StatelessWidget {
+  SectionHeader({Key key, this.title}) : super(key: key);
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(10.0),
+      child: Text(
+        title,
+        style: Theme.of(context).textTheme.headline6,
+      ),
     );
   }
 }
