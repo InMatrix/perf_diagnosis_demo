@@ -16,12 +16,6 @@ class CoinFlipFixState extends State<CoinFlipFix>
 
   final Random random = Random();
 
-  // The total number of tasks we will run. We need to split up the computational
-  // work of calculating coin flips into multiple tasks. Each task should complete
-  // in <= 4ms. This will prevent UI jank and dropped frames from occurring due
-  // to a blocked UI thread.
-  static final int _totalTasks = 50;
-
   // Whether the coin is currently flipping
   bool isCoinFlipping = false;
   // The number of times the coin flip resulted in heads.
