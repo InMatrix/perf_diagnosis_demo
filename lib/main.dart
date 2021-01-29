@@ -63,12 +63,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Card(
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  SectionHeader(
-                    title: "CPU Performance",
-                  ),
-                  makeDemoEntry(context, "Coin Flip Demo", CoinFlipDemo()),
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SectionHeader(
+                title: "CPU Performance",
+              ),
+              makeDemoEntry(context, "Coin Flip Demo", CoinFlipDemo()),
             ],
           ))
         ],
@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyHomePage> {
           width: 50.0,
         ),
         Icon(Icons.warning),
-        FlatButton(
+        TextButton(
           child: Text(title),
           onPressed: () {
             Navigator.push(

@@ -62,7 +62,7 @@ class _ScorecardDemoState extends State<ScorecardDemo>
                   ),
                   Flexible(
                     flex: 1,
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       onPressed: showScore,
                       child: Text("Show Score"),
                     ),
@@ -114,5 +114,4 @@ class _ScorecardDemoState extends State<ScorecardDemo>
     controller.dispose();
     super.dispose();
   }
-
 }

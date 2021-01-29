@@ -59,7 +59,7 @@ class MyDrawer extends StatelessWidget {
           width: 50.0,
         ),
         Icon(Icons.star),
-        FlatButton(
+        TextButton(
           child: Text(title),
           onPressed: () {
             Navigator.push(

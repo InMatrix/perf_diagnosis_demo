@@ -69,7 +69,7 @@ class ScorecardFixState extends State<ScorecardFix>
                   ),
                   Flexible(
                     flex: 1,
-                    child: RaisedButton(
+                    child: ElevatedButton(
                       onPressed: showScore,
                       child: Text("Show Score"),
                     ),

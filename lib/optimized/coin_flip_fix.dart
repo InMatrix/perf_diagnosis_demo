@@ -8,7 +8,8 @@ class CoinFlipFix extends StatefulWidget {
   CoinFlipFixState createState() => CoinFlipFixState();
 }
 
-class CoinFlipFixState extends State<CoinFlipFix> with SingleTickerProviderStateMixin {
+class CoinFlipFixState extends State<CoinFlipFix>
+    with SingleTickerProviderStateMixin {
   AnimationController _controller;
   Animation _flipAnimation;
   SchedulerBinding _scheduler;
@@ -73,11 +74,10 @@ class CoinFlipFixState extends State<CoinFlipFix> with SingleTickerProviderState
   void initState() {
     super.initState();
     _scheduler = SchedulerBinding.instance;
-    _controller = AnimationController(duration: Duration(milliseconds: 800), vsync: this);
+    _controller =
+        AnimationController(duration: Duration(milliseconds: 800), vsync: this);
     final CurvedAnimation curve = CurvedAnimation(
-        parent: _controller,
-        curve: Interval(0.0, 1.0, curve: Curves.linear)
-    );
+        parent: _controller, curve: Interval(0.0, 1.0, curve: Curves.linear));
     _flipAnimation = Tween(begin: 0.0, end: 1.0).animate(curve);
     _controller.repeat();
   }
@@ -101,12 +101,14 @@ class CoinFlipFixState extends State<CoinFlipFix> with SingleTickerProviderState
           children: <Widget>[
             Column(
               children: <Widget>[
-                _AnimatedCoin(controller: _controller, flipAnimation: _flipAnimation),
+                _AnimatedCoin(
+                    controller: _controller, flipAnimation: _flipAnimation),
                 const SizedBox(height: 10.0),
                 _FlipButton(onPressed: _flipCoin)
               ],
             ),
-            _Results(heads: _headsCount, tails: _tailsCount, total: _totalFlipCount),
+            _Results(
+                heads: _headsCount, tails: _tailsCount, total: _totalFlipCount),
           ],
         ),
       ),
@@ -155,8 +157,7 @@ class _CoinPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    Paint p = Paint()
-        ..color = Colors.amber;
+    Paint p = Paint()..color = Colors.amber;
 
     Offset center = Offset(size.width / 2, size.height / 2);
     double radius = min(size.width / 2, size.height / 2);
@@ -173,15 +174,14 @@ class _FlipButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return RaisedButton(
+    return ElevatedButton(
       child: const Text(
         'Flip Coin',
         style: TextStyle(
           fontSize: 24.0,
+          color: Colors.white,
         ),
       ),
-      textColor: Colors.white,
-      color: Colors.blue,
       onPressed: onPressed,
     );
   }
@@ -196,8 +196,10 @@ class _Results extends StatelessWidget {
 
   final NumberFormat formatter = NumberFormat.percentPattern('en_US');
 
-  String get headsPercentage => total == 0 ? '-- %' : formatter.format(heads / total);
-  String get tailsPercentage => total == 0 ? '-- %' : formatter.format(tails / total);
+  String get headsPercentage =>
+      total == 0 ? '-- %' : formatter.format(heads / total);
+  String get tailsPercentage =>
+      total == 0 ? '-- %' : formatter.format(tails / total);
 
   @override
   Widget build(BuildContext context) {
@@ -217,32 +219,28 @@ class _Results extends StatelessWidget {
             const SizedBox(height: 10.0),
             Text(
               'Heads: $heads',
-              style: Theme.of(context).textTheme.headline,
+              style: Theme.of(context).textTheme.headline5,
             ),
             const SizedBox(height: 10.0),
-            Text(
-                'Tails: $tails',
-                style: Theme.of(context).textTheme.headline
-            ),
+            Text('Tails: $tails', style: Theme.of(context).textTheme.headline5),
             const SizedBox(height: 10.0),
             Text(
               'Total flips: $total',
-              style: Theme.of(context).textTheme.headline,
+              style: Theme.of(context).textTheme.headline5,
             ),
             const SizedBox(height: 10.0),
             Text(
               'The coin lands on Heads ~$headsPercentage of the time.',
-              style: Theme.of(context).textTheme.title,
+              style: Theme.of(context).textTheme.headline6,
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 10.0),
             Text(
               'The coin lands on Tails ~$tailsPercentage of the time.',
-              style: Theme.of(context).textTheme.title,
+              style: Theme.of(context).textTheme.headline6,
               textAlign: TextAlign.center,
             ),
           ],
-        )
-    );
+        ));
   }
 }
