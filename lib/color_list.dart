@@ -1,7 +1,5 @@
 // This file includes a list of colors used by the examples
 
-
-
 import 'package:flutter/material.dart';
 
 List<Color> getColorList([double opacity = 1.0]) {

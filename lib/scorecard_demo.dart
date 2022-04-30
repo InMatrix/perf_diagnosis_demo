@@ -1,7 +1,4 @@
-
-
 import 'package:flutter/material.dart';
-
 import 'color_list.dart';
 
 class ScorecardDemo extends StatefulWidget {

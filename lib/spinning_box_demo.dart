@@ -1,9 +1,5 @@
-
-
 import 'dart:math';
-
 import 'package:flutter/material.dart';
-
 import 'color_list.dart';
 
 class SpinningBoxDemo extends StatelessWidget {
@@ -34,7 +30,7 @@ class GridItem extends StatefulWidget {
 }
 
 class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
-  Animation? animation;
+  late Animation<double> animation;
   late AnimationController controller;
 
   initState() {
@@ -56,7 +52,7 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
         controller.forward();
       },
       child: SpinningBox(
-        animation: animation as Animation<double>?,
+        animation: animation,
       ),
     );
   }
@@ -67,20 +63,20 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
   }
 }
 
-// Widget that makes its content spinnable 
+// Widget that makes its content spinnable
 class SpinningBox extends StatelessWidget {
-  SpinningBox({this.child, this.animation});
+  SpinningBox({this.child, required this.animation});
 
   final Widget? child;
-  final Animation<double>? animation;
+  final Animation<double> animation;
   final colorList = getColorList();
 
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: animation!,
+        animation: animation,
         builder: (BuildContext context, Widget? child) {
           return Transform.rotate(
-            angle: animation!.value,
+            angle: animation.value,
             child: Padding(
               padding: EdgeInsets.all(5.0),
               child: Container(
