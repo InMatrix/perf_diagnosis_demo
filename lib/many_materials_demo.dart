@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 
 import 'color_list.dart';
@@ -32,8 +34,8 @@ class GridItem extends StatefulWidget {
 }
 
 class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
-  Animation animation;
-  AnimationController controller;
+  Animation? animation;
+  late AnimationController controller;
 
   initState() {
     super.initState();
@@ -54,7 +56,7 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
         controller.forward();
       },
       child: PaddingAnimation(
-        animation: animation,
+        animation: animation as Animation<double>?,
         child: GridInGrid(),
       ),
     );
@@ -69,15 +71,15 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
 class PaddingAnimation extends StatelessWidget {
   PaddingAnimation({this.child, this.animation});
 
-  final Widget child;
-  final Animation<double> animation;
+  final Widget? child;
+  final Animation<double>? animation;
 
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: animation,
-        builder: (BuildContext context, Widget child) {
+        animation: animation!,
+        builder: (BuildContext context, Widget? child) {
           return Padding(
-            padding: EdgeInsets.all(animation.value),
+            padding: EdgeInsets.all(animation!.value),
             child: child,
           );
         },

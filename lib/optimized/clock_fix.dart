@@ -1,3 +1,5 @@
+
+
 import 'dart:async';
 
 import 'package:flutter/material.dart';
@@ -39,7 +41,7 @@ class _ClockDemoState extends State<ClockFix> {
 
 class ClockText extends StatefulWidget {
   ClockText({
-    Key key,
+    Key? key,
     this.utcOffset: 0,
   }) : super(key: key);
 
@@ -51,7 +53,7 @@ class ClockText extends StatefulWidget {
 
 class _ClockTextState extends State<ClockText> {
   var currentTime = DateTime.now();
-  Timer timer;
+  late Timer timer;
 
   @override
   void initState() {
@@ -76,7 +78,7 @@ class _ClockTextState extends State<ClockText> {
     return Text(
       currentTime
           .toUtc()
-          .add(Duration(hours: widget.utcOffset))
+          .add(Duration(hours: widget.utcOffset as int))
           .toIso8601String(),
     );
   }

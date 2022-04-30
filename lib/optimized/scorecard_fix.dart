@@ -2,7 +2,8 @@
 // widget directly can avoid rebuilding its sub-tree in every frame of the
 // animation.
 
-import 'package:flutter/animation.dart';
+
+
 import 'package:flutter/material.dart';
 
 import '../color_list.dart';
@@ -16,8 +17,8 @@ class ScorecardFix extends StatefulWidget {
 
 class ScorecardFixState extends State<ScorecardFix>
     with SingleTickerProviderStateMixin {
-  Animation<double> animation;
-  AnimationController controller;
+  Animation<double>? animation;
+  AnimationController? controller;
   var opacityVal = 1.0;
   bool scoreVisible = false;
 

@@ -1,6 +1,8 @@
 // This demo shows that passing in non-animated widgets as a child into an
 // AnimatedBuilder can avoid them to be rebuilt in every frame.
 
+
+
 import 'package:flutter/material.dart';
 
 import '../color_list.dart';
@@ -34,8 +36,8 @@ class GridItem extends StatefulWidget {
 }
 
 class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
-  Animation animation;
-  AnimationController controller;
+  Animation? animation;
+  late AnimationController controller;
 
   initState() {
     super.initState();
@@ -56,7 +58,7 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
         controller.forward();
       },
       child: SpinningBox(
-        animation: animation,
+        animation: animation as Animation<double>?,
         child: GridInGrid(),
       ),
     );
@@ -72,15 +74,15 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
 class SpinningBox extends StatelessWidget {
   SpinningBox({this.child, this.animation});
 
-  final Widget child;
-  final Animation<double> animation;
+  final Widget? child;
+  final Animation<double>? animation;
 
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-        animation: animation,
-        builder: (BuildContext context, Widget child) {
+        animation: animation!,
+        builder: (BuildContext context, Widget? child) {
           return Transform.rotate(
-            angle: animation.value,
+            angle: animation!.value,
             child: child,
           );
         },

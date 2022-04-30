@@ -1,4 +1,5 @@
-import 'package:flutter/animation.dart';
+
+
 import 'package:flutter/material.dart';
 
 import 'color_list.dart';
@@ -12,8 +13,8 @@ class ScorecardDemo extends StatefulWidget {
 
 class _ScorecardDemoState extends State<ScorecardDemo>
     with SingleTickerProviderStateMixin {
-  Animation<double> animation;
-  AnimationController controller;
+  late Animation<double> animation;
+  late AnimationController controller;
   bool scoreVisible = false;
 
   @override
