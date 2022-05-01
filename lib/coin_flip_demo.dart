@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'dart:math';
@@ -11,8 +9,8 @@ class CoinFlipDemo extends StatefulWidget {
 
 class CoinFlipDemoState extends State<CoinFlipDemo>
     with SingleTickerProviderStateMixin {
-  AnimationController? _controller;
-  Animation? _flipAnimation;
+  late AnimationController _controller;
+  late Animation _flipAnimation;
 
   final Random random = Random.secure();
 
@@ -52,13 +50,13 @@ class CoinFlipDemoState extends State<CoinFlipDemo>
     _controller =
         AnimationController(duration: Duration(milliseconds: 800), vsync: this);
     final CurvedAnimation curve = CurvedAnimation(
-        parent: _controller!, curve: Interval(0.0, 1.0, curve: Curves.linear));
+        parent: _controller, curve: Interval(0.0, 1.0, curve: Curves.linear));
     _flipAnimation = Tween(begin: 0.0, end: 1.0).animate(curve);
-    _controller!.repeat();
+    _controller.repeat();
   }
 
   dispose() {
-    _controller!.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -92,17 +90,17 @@ class CoinFlipDemoState extends State<CoinFlipDemo>
 }
 
 class _AnimatedCoin extends StatelessWidget {
-  _AnimatedCoin({this.controller, this.flipAnimation});
+  _AnimatedCoin({required this.controller, required this.flipAnimation});
 
-  final AnimationController? controller;
-  final Animation? flipAnimation;
+  final AnimationController controller;
+  final Animation flipAnimation;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(8.0),
       child: AnimatedBuilder(
-        animation: controller!,
+        animation: controller,
         builder: (BuildContext context, Widget? child) {
           return Center(
             child: Container(
@@ -110,7 +108,7 @@ class _AnimatedCoin extends StatelessWidget {
               width: 150.0,
               child: Transform(
                 transform: Matrix4.identity()
-                  ..rotateX(2 * pi * flipAnimation!.value),
+                  ..rotateX(2 * pi * flipAnimation.value),
                 alignment: Alignment.center,
                 child: const CustomPaint(
                   size: Size(150.0, 150.0),
@@ -141,9 +139,9 @@ class _CoinPainter extends CustomPainter {
 }
 
 class _FlipButton extends StatelessWidget {
-  _FlipButton({this.onPressed});
+  _FlipButton({required this.onPressed});
 
-  final VoidCallback? onPressed;
+  final VoidCallback onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -161,18 +159,18 @@ class _FlipButton extends StatelessWidget {
 }
 
 class _Results extends StatelessWidget {
-  _Results({this.heads, this.tails, this.total});
+  _Results({required this.heads, required this.tails, required this.total});
 
-  final int? heads;
-  final int? tails;
-  final int? total;
+  final int heads;
+  final int tails;
+  final int total;
 
   final NumberFormat formatter = NumberFormat.percentPattern('en_US');
 
   String get headsPercentage =>
-      total == 0 ? '-- %' : formatter.format(heads! / total!);
+      total == 0 ? '-- %' : formatter.format(heads / total);
   String get tailsPercentage =>
-      total == 0 ? '-- %' : formatter.format(tails! / total!);
+      total == 0 ? '-- %' : formatter.format(tails / total);
 
   @override
   Widget build(BuildContext context) {
