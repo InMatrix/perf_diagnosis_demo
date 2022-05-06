@@ -1,7 +1,4 @@
-
-
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 class ClockDemo extends StatefulWidget {
@@ -15,7 +12,8 @@ class _ClockDemoState extends State<ClockDemo> {
 
   @override
   void initState() {
-    timer = new Timer.periodic(new Duration(milliseconds: 1000 ~/ 60), timerCallBack);
+    timer = new Timer.periodic(
+        new Duration(milliseconds: 1000 ~/ 60), timerCallBack);
     super.initState();
   }
 
@@ -55,7 +53,10 @@ class _ClockDemoState extends State<ClockDemo> {
       leading: Icon(Icons.watch),
       title: Text(label),
       subtitle: Text(
-        currentTime.toUtc().add(Duration(hours: utcOffset as int)).toIso8601String(),
+        currentTime
+            .toUtc()
+            .add(Duration(hours: utcOffset as int))
+            .toIso8601String(),
       ),
     );
   }

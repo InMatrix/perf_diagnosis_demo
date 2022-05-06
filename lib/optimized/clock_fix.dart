@@ -1,7 +1,4 @@
-
-
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 
 class ClockFix extends StatefulWidget {
@@ -57,7 +54,8 @@ class _ClockTextState extends State<ClockText> {
 
   @override
   void initState() {
-    timer = new Timer.periodic(new Duration(milliseconds: 1000 ~/ 60), timerCallBack);
+    timer = new Timer.periodic(
+        new Duration(milliseconds: 1000 ~/ 60), timerCallBack);
     super.initState();
   }
 

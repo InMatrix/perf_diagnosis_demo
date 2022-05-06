@@ -1,8 +1,5 @@
-
-
 import 'package:flutter/material.dart';
 import 'optimized/spinning_box_fix.dart';
-
 import 'many_materials_demo.dart';
 import 'opacity_demo.dart';
 import 'optimized/clock_fix.dart';

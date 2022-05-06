@@ -2,7 +2,6 @@
 // AnimatedBuilder can avoid them to be rebuilt in every frame.
 
 import 'package:flutter/material.dart';
-
 import '../color_list.dart';
 import 'dart:math';
 

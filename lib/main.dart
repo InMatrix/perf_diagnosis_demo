@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'clock_demo.dart';
 import 'drawer.dart';
 import 'coin_flip_demo.dart';
@@ -97,16 +96,16 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class SectionHeader extends StatelessWidget {
-  SectionHeader({Key? key, this.title}) : super(key: key);
+  SectionHeader({Key? key, required this.title}) : super(key: key);
 
-  final String? title;
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.all(10.0),
       child: Text(
-        title!,
+        title,
         style: Theme.of(context).textTheme.headline6,
       ),
     );
