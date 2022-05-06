@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'color_list.dart';
 
 class OpacityDemo1 extends StatelessWidget {

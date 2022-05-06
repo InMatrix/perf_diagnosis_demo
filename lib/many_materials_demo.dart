@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'color_list.dart';
 
 class ManyMaterialsDemo extends StatelessWidget {
@@ -32,8 +31,8 @@ class GridItem extends StatefulWidget {
 }
 
 class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
-  Animation animation;
-  AnimationController controller;
+  late Animation<double> animation;
+  late AnimationController controller;
 
   initState() {
     super.initState();
@@ -67,7 +66,7 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
 }
 
 class PaddingAnimation extends StatelessWidget {
-  PaddingAnimation({this.child, this.animation});
+  PaddingAnimation({required this.child, required this.animation});
 
   final Widget child;
   final Animation<double> animation;
@@ -75,7 +74,7 @@ class PaddingAnimation extends StatelessWidget {
   Widget build(BuildContext context) {
     return AnimatedBuilder(
         animation: animation,
-        builder: (BuildContext context, Widget child) {
+        builder: (BuildContext context, Widget? child) {
           return Padding(
             padding: EdgeInsets.all(animation.value),
             child: child,
@@ -99,11 +98,11 @@ class GridInGrid extends StatelessWidget {
           children: new List<Widget>.generate(
             9,
             (i) => Material(
-                  elevation: 3.0,
-                  child: Container(
-                    color: colorList[i],
-                  ),
-                ),
+              elevation: 3.0,
+              child: Container(
+                color: colorList[i],
+              ),
+            ),
           ),
         ),
       ),

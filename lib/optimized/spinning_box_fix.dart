@@ -2,7 +2,6 @@
 // AnimatedBuilder can avoid them to be rebuilt in every frame.
 
 import 'package:flutter/material.dart';
-
 import '../color_list.dart';
 import 'dart:math';
 
@@ -34,8 +33,8 @@ class GridItem extends StatefulWidget {
 }
 
 class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
-  Animation animation;
-  AnimationController controller;
+  late Animation<double> animation;
+  late AnimationController controller;
 
   initState() {
     super.initState();
@@ -70,15 +69,15 @@ class _GridItemState extends State<GridItem> with TickerProviderStateMixin {
 
 // Widget that makes its content spinnable
 class SpinningBox extends StatelessWidget {
-  SpinningBox({this.child, this.animation});
+  SpinningBox({this.child, required this.animation});
 
-  final Widget child;
+  final Widget? child;
   final Animation<double> animation;
 
   Widget build(BuildContext context) {
     return AnimatedBuilder(
         animation: animation,
-        builder: (BuildContext context, Widget child) {
+        builder: (BuildContext context, Widget? child) {
           return Transform.rotate(
             angle: animation.value,
             child: child,
@@ -100,8 +99,8 @@ class GridInGrid extends StatelessWidget {
         children: new List<Widget>.generate(
           9,
           (i) => Container(
-                color: colorList[i],
-              ),
+            color: colorList[i],
+          ),
         ),
       ),
     );

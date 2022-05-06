@@ -10,9 +10,9 @@ class CoinFlipFix extends StatefulWidget {
 
 class CoinFlipFixState extends State<CoinFlipFix>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
-  Animation _flipAnimation;
-  SchedulerBinding _scheduler;
+  late AnimationController _controller;
+  late Animation _flipAnimation;
+  late SchedulerBinding _scheduler;
 
   final Random random = Random();
 
@@ -111,7 +111,7 @@ class CoinFlipFixState extends State<CoinFlipFix>
 }
 
 class _AnimatedCoin extends StatelessWidget {
-  _AnimatedCoin({this.controller, this.flipAnimation});
+  _AnimatedCoin({required this.controller, required this.flipAnimation});
 
   final AnimationController controller;
   final Animation flipAnimation;
@@ -124,7 +124,7 @@ class _AnimatedCoin extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: AnimatedBuilder(
         animation: controller,
-        builder: (BuildContext context, Widget child) {
+        builder: (BuildContext context, Widget? child) {
           return Center(
             child: Container(
               height: 150.0,
@@ -162,7 +162,7 @@ class _CoinPainter extends CustomPainter {
 }
 
 class _FlipButton extends StatelessWidget {
-  _FlipButton({this.onPressed});
+  _FlipButton({required this.onPressed});
 
   final VoidCallback onPressed;
 
@@ -182,7 +182,7 @@ class _FlipButton extends StatelessWidget {
 }
 
 class _Results extends StatelessWidget {
-  _Results({this.heads, this.tails, this.total});
+  _Results({required this.heads, required this.tails, required this.total});
 
   final int heads;
   final int tails;
